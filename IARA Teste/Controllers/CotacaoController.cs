@@ -26,19 +26,20 @@ namespace IARA_Teste.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CotacaoModel>> GetAsync(int id = 0)
+        public async Task<IEnumerable<Cotacao>> GetAsync(int id = 0)
         {
-            await cotacaoService.GetCotacaos(id);
-            return Enumerable.Range(1, 5).Select(index => new CotacaoModel
-            {
-                NumeroCotacao = 0
-            })
-          .ToArray();
+            return (await cotacaoService.GetCotacaos(id)).ToList();
         }
 
         [HttpPut]
         public async Task<bool> PutAsync(Cotacao cotacao)
         {
+            var methods = new Methods();
+            if (!(methods.Validar(cotacao)))
+                return false;
+
+            methods.BuscarCep(cotacao);
+
             cotacao = await cotacaoService.InsertCotacao(cotacao);
             return cotacao.IdCotacao > 0;
         }

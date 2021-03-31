@@ -4,6 +4,7 @@ namespace IARA_Teste
 {
     public class CotacaoItem
     {
+        public int IdCotacaoItem { get; set; }
         public string Descricao { get; set; }
         public int NumeroItem { get; set; }
         public decimal Preco { get; set; }

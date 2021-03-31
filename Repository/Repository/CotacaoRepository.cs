@@ -176,20 +176,20 @@ namespace Repository.Reposiroies
             string sqlcotacao = $"Select * From Cotacao {(cotacaoId > 0 ? $"Where IdCotacao = {cotacaoId}" : "")}";
 
             IList<Cotacao> listcotacao = new List<Cotacao>();
-
             using (var connectionDb = connection.Connection())
             {
                 connectionDb.Open();
 
-                var result = await connectionDb.QueryAsync<dynamic>(sqlcotacao);
+                var result = await connectionDb.QueryAsync<Cotacao>(sqlcotacao);
 
                 if (result.Any())
                 {
                     foreach (var cotacao in result.ToList())
                     {
                         string sqlcotacaoItem = $"Select * From CotacaoItem {(cotacao.IdCotacao > 0 ? $"Where IdCotacao = {cotacao.IdCotacao}" : "")}";
+                        cotacao.cotacaoItens = new List<CotacaoItem>();
 
-                        var resultcotacaoItem = await connectionDb.QueryAsync<dynamic>(sqlcotacaoItem);
+                        var resultcotacaoItem = await connectionDb.QueryAsync<CotacaoItem>(sqlcotacaoItem);
 
                         if (result.Any())
                         {
@@ -207,6 +207,7 @@ namespace Repository.Reposiroies
 
         public async Task<Cotacao> InsertCotacao(Cotacao cotacao)
         {
+
             string sql = "Insert into cotacao values (@CNPJComprador, @CNPJFornecedor, @NumeroCotacao, @DataCotacao, @DataEntregaCotacao, @CEP, @Logradouro, @Complemento, @Bairro, @UF, @Observacao) SELECT @@IDENTITY as Id";
 
             using (var connectionDb = connection.Connection())
