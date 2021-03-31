@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CotacaoItemModel.cs" />
-    <Compile Include="Models\CotacaoModel.cs" />
+    <Compile Include="Models\CotacaoItem.cs" />
+    <Compile Include="Models\Cotacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

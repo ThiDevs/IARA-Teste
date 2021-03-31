@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace IARA_Teste
 {
-    public class CotacaoModel
+    public class Cotacao
     {
+        public int IdCotacao { get; set; }
         public string CNPJComprador { get; set; }
         public string CNPJFornecedor { get; set; }
         public int NumeroCotacao { get; set; }
@@ -16,7 +17,7 @@ namespace IARA_Teste
         public string Bairro { get; set; }
         public string UF { get; set; }
         public string Observacao { get; set; }
-        List<CotacaoItem> CotacaoItens { get; set; }
+        public List<CotacaoItem> cotacaoItens { get; set; }
 
     }
 }

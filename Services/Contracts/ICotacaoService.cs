@@ -7,10 +7,10 @@ namespace Service.Contracts
 {
     public interface ICotacaoService 
     {
-        Task<IEnumerable<CotacaoModel>> GetCotacaos(Guid CotacaoModelId);
-        Task<CotacaoModel> InsertCotacao(CotacaoModel CotacaoModel);
-        Task<CotacaoModel> UpdateCotacao(CotacaoModel CotacaoModel);
+        Task<IEnumerable<Cotacao>> GetCotacaos(int CotacaoModelId);
+        Task<Cotacao> InsertCotacao(Cotacao CotacaoModel);
+        Task<Cotacao> UpdateCotacao(Cotacao CotacaoModel);
         //Task<CotacaoModel> GetCotacao(Guid CotacaoModelId);
-        Task<bool> DeleteCotacao(Guid CotacaoModelId);
+        Task<bool> DeleteCotacao(int CotacaoModelId);
     }
 }

@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repository.Connection;
+using Repository.Contracts;
+using Repository.Reposiroies;
+using Service.Contracts;
+using Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +31,11 @@ namespace IARA_Teste
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddSingleton<ICotacaoService, CotacaoService>();
+            services.AddSingleton<ICotacaoRepository, CotacaoRepository>();
+            services.AddSingleton<IConnectionFactory, DeafultSqlConnectionFactory>();
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
@@ -32,7 +43,21 @@ namespace IARA_Teste
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "IARA", Version = "v1" });
             });
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            AutoMapperConfig(services);
+            services.AddMemoryCache();
+        }
 
+        private void AutoMapperConfig(IServiceCollection services)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<CotacaoModel, Cotacao>();
+                cfg.CreateMap<Cotacao, CotacaoModel>();
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

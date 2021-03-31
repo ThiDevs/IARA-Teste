@@ -8,7 +8,8 @@ namespace Repository.Connection
     {
         public IDbConnection Connection()
         {
-            return new SqlConnection("Database=IaraDB;Data Source=(localdb)\\MSSQLLocalDB;");
+            return new SqlConnection("Server=189.84.214.2;Database=PhidelisMonteiroLobato;User Id=usuariosga;Password=senha");
+            //return new SqlConnection("Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword");
         }
     }
 }

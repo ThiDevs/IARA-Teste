@@ -7,10 +7,10 @@ namespace Repository.Contracts
 {
     public interface ICotacaoRepository
     {
-        Task<IEnumerable<CotacaoModel>> GetCotacaos(Guid cotacaoId);
-        Task<CotacaoModel> InsertCotacao(CotacaoModel cotacao);
-        Task<CotacaoModel> UpdateCotacao(CotacaoModel cotacao);
-        Task<bool> DeleteCotacao(Guid heroId);
-        //Task<CotacaoModel> GetCotacao(Guid heroId);
+        Task<IEnumerable<Cotacao>> GetCotacaos(int cotacaoId);
+        Task<Cotacao> InsertCotacao(Cotacao cotacao);
+        Task<Cotacao> UpdateCotacao(Cotacao cotacao);
+        Task<bool> DeleteCotacao(int heroId);
+        //Task<Cotacao> GetCotacao(Guid heroId);
     }
 }

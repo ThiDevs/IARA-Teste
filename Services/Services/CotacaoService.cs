@@ -11,42 +11,37 @@ namespace Service.Services
 {
     public class CotacaoService : ICotacaoService
     {
-        private readonly IMemoryCache memoryCache;
         private readonly ICotacaoRepository repository;
 
-        public CotacaoService(ICotacaoRepository repository, IMemoryCache memoryCache)
+        public CotacaoService(ICotacaoRepository repository)
         {
             this.repository = repository;
-            this.memoryCache = memoryCache;
         }
 
-        //public async Task<CotacaoModel> GetCotacao(Guid CotacaoId)
+        //public async Task<Cotacao> GetCotacao(int CotacaoId)
         //{
         //    return await repository.GetCotacao(CotacaoId);
         //}
 
-        public async Task<IEnumerable<CotacaoModel>> GetCotacaos(Guid CotacaoModelId)
+        public async Task<IEnumerable<Cotacao>> GetCotacaos(int CotacaoId)
         {
-            return await repository.GetCotacaos(CotacaoModelId);
+            return await repository.GetCotacaos(CotacaoId);
         }
 
-        public async Task<CotacaoModel> InsertCotacao(CotacaoModel Cotacao)
+        public async Task<Cotacao> InsertCotacao(Cotacao Cotacao)
         {
-          
-
             return await repository.InsertCotacao(Cotacao);
         }
 
-        public async Task<CotacaoModel> UpdateCotacao(CotacaoModel Cotacao)
+        public async Task<Cotacao> UpdateCotacao(Cotacao Cotacao)
         {
             return await repository.UpdateCotacao(Cotacao);
         }
-
-        public async Task<bool> DeleteCotacao(Guid CotacaoId)
+        public async Task<bool> DeleteCotacao(int CotacaoId)
         {
             return await repository.DeleteCotacao(CotacaoId);
         }
 
-        
+
     }
 }
