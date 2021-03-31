@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domains", "Models\Domains.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{617E3323-8F36-4992-AC80-392916CED1F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executor", "Executor", "{F4F71BA4-D1D8-479A-AA7D-3F46E2C8772E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecutorIara", "ExecutorIara\ExecutorIara.csproj", "{56827384-B23D-4C19-A1E1-5D40EFB143DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{617E3323-8F36-4992-AC80-392916CED1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617E3323-8F36-4992-AC80-392916CED1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617E3323-8F36-4992-AC80-392916CED1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56827384-B23D-4C19-A1E1-5D40EFB143DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56827384-B23D-4C19-A1E1-5D40EFB143DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56827384-B23D-4C19-A1E1-5D40EFB143DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56827384-B23D-4C19-A1E1-5D40EFB143DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56827384-B23D-4C19-A1E1-5D40EFB143DD} = {F4F71BA4-D1D8-479A-AA7D-3F46E2C8772E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2F7F09B-7326-4769-B5E0-5C0B8DA67344}

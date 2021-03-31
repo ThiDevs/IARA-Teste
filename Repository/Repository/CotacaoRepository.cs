@@ -266,7 +266,7 @@ namespace Repository.Reposiroies
 
             string sql = "Update cotacao set CNPJComprador = @CNPJComprador, CNPJFornecedor = @CNPJFornecedor, NumeroCotacao = @NumeroCotacao, DataCotacao = @DataCotacao, " +
                 "DataEntregaCotacao = @DataEntregaCotacao, CEP = @CEP, Logradouro = @Logradouro, Complemento = @Complemento, Bairro = @Bairro, UF = @UF, Observacao = @Observacao Where" +
-                $"IdCotacao = {cotacao.IdCotacao}";
+                $" IdCotacao = {cotacao.IdCotacao}";
 
             using (var connectionDb = connection.Connection())
             {
